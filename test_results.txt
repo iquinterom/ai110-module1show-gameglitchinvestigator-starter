@@ -1,0 +1,29 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.3, pluggy-1.6.0 -- c:\Users\god_o\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\god_o\Desktop\AI110\Week2\ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.13.0
+collecting ... collected 20 items
+
+tests/test_game_logic.py::test_get_range_for_difficulty_easy PASSED      [  5%]
+tests/test_game_logic.py::test_get_range_for_difficulty_normal PASSED    [ 10%]
+tests/test_game_logic.py::test_get_range_for_difficulty_hard PASSED      [ 15%]
+tests/test_game_logic.py::test_get_attempt_limit_for_each_difficulty[Easy-6] PASSED [ 20%]
+tests/test_game_logic.py::test_get_attempt_limit_for_each_difficulty[Normal-8] PASSED [ 25%]
+tests/test_game_logic.py::test_get_attempt_limit_for_each_difficulty[Hard-5] PASSED [ 30%]
+tests/test_game_logic.py::test_is_out_of_attempts_only_after_last_allowed_guess[Easy-6] PASSED [ 35%]
+tests/test_game_logic.py::test_is_out_of_attempts_only_after_last_allowed_guess[Normal-8] PASSED [ 40%]
+tests/test_game_logic.py::test_is_out_of_attempts_only_after_last_allowed_guess[Hard-5] PASSED [ 45%]
+tests/test_game_logic.py::test_parse_guess_accepts_integer_string PASSED [ 50%]
+tests/test_game_logic.py::test_parse_guess_rejects_blank_input PASSED    [ 55%]
+tests/test_game_logic.py::test_check_guess_returns_win_info_for_exact_match PASSED [ 60%]
+tests/test_game_logic.py::test_check_guess_reports_too_high PASSED       [ 65%]
+tests/test_game_logic.py::test_check_guess_hint_points_lower_when_guess_is_too_high PASSED [ 70%]
+tests/test_game_logic.py::test_check_guess_reports_too_low PASSED        [ 75%]
+tests/test_game_logic.py::test_update_score_for_win PASSED               [ 80%]
+tests/test_game_logic.py::test_update_score_for_too_low PASSED           [ 85%]
+tests/test_game_logic.py::test_attempts_left_matches_remaining_guesses[Easy-6] PASSED [ 90%]
+tests/test_game_logic.py::test_attempts_left_matches_remaining_guesses[Normal-8] PASSED [ 95%]
+tests/test_game_logic.py::test_attempts_left_matches_remaining_guesses[Hard-5] PASSED [100%]
+
+============================= 20 passed in 0.12s ==============================

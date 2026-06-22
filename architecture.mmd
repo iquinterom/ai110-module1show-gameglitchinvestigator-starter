@@ -1,0 +1,52 @@
+classDiagram
+    class App {
+        +run()
+        +render_ui()
+        +handle_submit()
+        +reset_game()
+    }
+
+    class SessionState {
+        +secret
+        +attempts
+        +score
+        +status
+        +history
+        +current_difficulty
+    }
+
+    class DifficultyConfig {
+        +get_range_for_difficulty()
+        +get_attempt_limit_for_difficulty()
+    }
+
+    class GuessLogic {
+        +parse_guess()
+        +check_guess()
+        +update_score()
+        +is_out_of_attempts()
+    }
+
+    class DeveloperDebugPanel {
+        +show_secret()
+        +show_attempts()
+        +show_score()
+        +show_history()
+    }
+
+    class AIAssistant {
+        +identify_bug()
+        +suggest_fix()
+        +write_tests()
+        +verify_results()
+    }
+
+    App --> SessionState : reads/writes
+    App --> DifficultyConfig : uses
+    App --> GuessLogic : uses
+    App --> DeveloperDebugPanel : displays
+    AIAssistant --> App : helps debug/fix
+    AIAssistant --> GuessLogic : validates logic changes
+    AIAssistant --> SessionState : explains state flow
+
+    
