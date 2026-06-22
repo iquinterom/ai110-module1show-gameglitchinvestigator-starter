@@ -1,76 +1,64 @@
 # AI Interactions Log
 
-> **Stretch features only.** Only fill in the sections that apply to stretch features you attempted. If you did not attempt a stretch feature, leave its section blank or delete it. This file is not required for the core project.
+This file documents how AI assistance was used to debug, improve, and verify the game.
 
 ---
 
 ## Agent Workflow (SF8)
 
-> Document your experience using an AI agent (e.g., Cursor Agent, Claude, Copilot) to make multi-step changes autonomously.
-
 **What task did you give the agent?**
-
-<!-- Describe the goal you asked the agent to accomplish -->
+I asked the AI to investigate why the game logic and UI were inconsistent, especially around the secret number, attempts counter, hint messages, and score updates.
 
 **What did the agent do?**
-
-<!-- List the steps the agent took (files edited, commands run, etc.) -->
+The AI helped trace the Streamlit rerun behavior, identify where session state was being updated too late, suggest fixes for the hint logic, and help move game logic into helper functions.
 
 **What did you have to verify or fix manually?**
-
-<!-- Describe anything the agent got wrong or that required human review -->
+I had to check the final app behavior myself, confirm the attempts count was correct, and verify that the UI message and the logic stayed in sync.
 
 ---
 
 ## Test Generation (SF7)
 
-> Document how you used AI to help generate or improve tests.
-
 | Edge Case | Prompt Used | AI-Suggested Test | Did It Pass? | Your Reasoning |
 |-----------|-------------|-------------------|--------------|----------------|
-| | | | | |
-| | | | | |
-| | | | | |
+| Invalid guess input | "Write a test for blank or non-numeric guesses" | Test that parse_guess rejects empty strings and invalid values | Yes | This confirms the app handles bad input safely |
+| Difficulty ranges | "Write tests for each difficulty range" | Assertions for Easy/Normal/Hard range mapping | Yes | This ensures the correct bounds are used |
+| Attempts cutoff | "Write a test for the last allowed guess" | Test that the game is only lost after the final guess is used | Yes | This checks the off-by-one behavior |
+| Hint logic | "Write a test for too high / too low hints" | Assertions for correct hint messages | Yes | This verifies the comparison logic is correct |
 
 ---
 
 ## Linting & Style (SF9)
 
-> Document your use of AI for linting or code style improvements.
-
 **Prompt used:**
 
 ```
-<!-- Paste the prompt you gave the AI -->
+Help me clean up the code and make the logic easier to understand while keeping the behavior the same.
 ```
 
 **Linting output before:**
 
 ```
-<!-- Paste relevant linter warnings/errors -->
+No major syntax errors after cleanup, but several logic and UI consistency issues were present.
 ```
 
 **Changes applied:**
-
-<!-- Describe what you changed based on the AI's suggestions -->
+The AI helped separate logic into helper functions and improve readability, while I verified the functionality manually and through pytest.
 
 ---
 
 ## Model Comparison (SF11)
 
-> Compare two AI models on the same task.
-
 **Task given to both models:**
-
-<!-- Describe what you asked each model to do -->
+Compare how to explain the bug involving reruns, session state, and attempts tracking.
 
 | | Model A | Model B |
 |-|---------|---------|
-| **Model name** | | |
-| **Response summary** | | |
-| **More Pythonic?** | | |
-| **Clearer explanation?** | | |
+| **Model name** | ChatGPT | Copilot |
+| **Response summary** | Explained reruns and state updates clearly and focused on logic fixes | Also explained the issue well and suggested verification steps |
+| **More Pythonic?** | Yes | Yes |
+| **Clearer explanation?** | Slightly clearer for debugging flow | Slightly clearer for code structure |
 
 **Which did you prefer and why?**
+I preferred the explanation that connected the app behavior to the rerun cycle most directly, because that helped me understand why the UI looked one step behind.
 
-<!-- Your conclusion -->
