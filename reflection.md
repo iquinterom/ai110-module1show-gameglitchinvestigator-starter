@@ -14,9 +14,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Difficulty level    |the range is off for easy is 1 to 20, Normal is 1 to 100, and Hard is 1=50 |Message under Make a guess stays as "Guess number between 1 and 100. Atempts left: #   | Guess a number betwween does't change and in the Attempsts left the number is off by one in all levels   |
+|Enter your guess number   |Submit Guess by pressign enter on keyboard   |you need to submit by clicking button Submit Guess | sometimes by pressing the keyboard enter it submits but sometimes it doesn't submit  |
+|new game does not clear the enter your guess or refreshes as new game|It should clear the enter your guess/or start as new game |I get a message "Game over. Start a new game to try again." | Should clear game and start new one |
 
 ---
 
@@ -26,7 +26,9 @@ Document at least 3 bugs you found. Add rows as needed.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
----
+--- I use Claude.
+--- I provided information of one of glitches such as that the difficulty level and attempt number is off in all there levels. Claude responded with why the message is wrong and in what page the UI message was hardcoded.  It provided suggestions on how to correct it. I verify the results by making the changes that it was suggested and once I applied them the UI message was providing the correct information. 
+--- 
 
 ## 3. Debugging and testing your fixes
 
