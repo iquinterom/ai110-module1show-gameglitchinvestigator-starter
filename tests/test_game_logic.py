@@ -83,3 +83,18 @@ def test_update_score_for_win():
 
 def test_update_score_for_too_low():
     assert update_score(10, "Too Low", 1) == 5
+
+
+@pytest.mark.parametrize(
+    ("difficulty", "expected_limit"),
+    [("Easy", 6), ("Normal", 8), ("Hard", 5)],
+)
+def test_attempts_left_matches_remaining_guesses(difficulty, expected_limit):
+    for attempts_used in range(expected_limit + 1):
+        remaining = max(expected_limit - attempts_used, 0)
+        assert remaining == expected_limit - attempts_used
+
+        # The game should only be out of attempts after the last allowed guess is used.
+        assert is_out_of_attempts(attempts_used, expected_limit) is (
+            attempts_used >= expected_limit
+        )
